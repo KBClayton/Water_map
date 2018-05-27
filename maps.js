@@ -1,10 +1,16 @@
 
 $(document).ready(function() {
-    var wikiurl="https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&origin=*&titles=sloth";
-    $.ajax({
-        url: wikiurl,
-        method:"GET"
-    }).then(function(response){
+
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      
+      async function wait() {
+        await sleep(1500);
+    }
+      
+    wait().then(function(){
         var points = {
             draw: function(){
                 var location_001={lat: 32.656497, lng:-98.108956}
@@ -106,6 +112,7 @@ $(document).ready(function() {
 
         points.draw();
     });
+    
 
 
 });
